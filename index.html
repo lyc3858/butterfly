@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>蝴蝶要开心成长哦💕</title>
+<title>要开心成长哦💕</title>
 </head>
 <body style="background-color: black">
 <canvas id="cavs" style="position:fixed; z-index:-1;"></canvas>
@@ -18,7 +18,7 @@ class Love
     }
     init() 
     {
-        this.maxScale = (Math.random() * 3.2 + 1.2) * this.board.w / 521;
+        this.maxScale = (Math.random() * 3.2 + 1.2) * this.board.w / 300;
         this.curScale = 1.2 * this.board.w / 521;
         this.x = Math.floor(Math.random() * this.board.w - 40);
         this.y = Math.floor(this.board.h - Math.random() * 200);
@@ -80,7 +80,7 @@ class Board
         {
             this.shapes[key].draw();
         }
-        window.requestAnimationFrame(this.draw.bind(this));       
+        window.requestAnimationFrame(this.draw.bind(this));
     }
     run()
     {
