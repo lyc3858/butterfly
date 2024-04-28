@@ -8,9 +8,21 @@
         padding: 0;
         background-color: black;
       }
+      #message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 2rem;
+        opacity: 0; /* 初始透明度为0 */
+        transition: opacity 2.5s; /* 设置渐变效果 */
+      }
     </style>
   </head>
   <body>
+    <!-- 添加消息提示元素 -->
+    <div id="message"></div>
     <audio id="background-music" style="display: none" loop>
       <source src="./美人鱼.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
@@ -22,16 +34,24 @@
 <script type="text/javascript">
   // 获取音乐控制按钮和背景音乐元素
   const backgroundMusic = document.getElementById("background-music");
+  const message = document.getElementById("message");
   let isPlaying = false; // 音乐是否正在播放
 
   // 点击页面控制音乐播放状态
   document.body.addEventListener("click", function () {
     if (isPlaying) {
       backgroundMusic.pause(); // 暂停音乐
+      message.textContent = "暂停播放";
+      message.style.opacity = 1;
     } else {
       backgroundMusic.play(); // 开启音乐
+      message.textContent = "开始播放";
+      message.style.opacity = 1;
     }
     isPlaying = !isPlaying; // 切换音乐播放状态
+    setTimeout(() => {
+      message.style.opacity = 0; // 设置透明度为0，触发过渡效果
+    }, 2500); // 1秒后开始渐变隐藏
   });
 
   class Love {
